@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+    .layout {
+        @apply mx-auto max-w-7xl
+    }
+}
+
+body {
+    font-family: var(--font-poppins);
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  
+}
+
+::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }

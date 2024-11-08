@@ -1,0 +1,84 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
+import { IData } from '../data';
+
+const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const laptopRef = useRef<HTMLDivElement>(null);
+  const leftTextRef = useRef<HTMLDivElement>(null);
+  const rightTextRef = useRef<HTMLDivElement>(null);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const laptop = laptopRef.current;
+    const leftText = leftTextRef.current;
+    const rightText = rightTextRef.current;
+
+    if (section && laptop && leftText && rightText) {
+      gsap.set([leftText, rightText], { autoAlpha: 0, y: 100 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=500%",
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+
+      tl.to(laptop, { x: '65%', duration: 1.5, ease: "power2.inOut" })
+        .to(leftText, { autoAlpha: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1")
+        .to(leftText, { autoAlpha: 0, y: -100, duration: 1.5, ease: "power2.in" }, "+=1")
+        .to(laptop, { x: '0%', duration: 1.5, ease: "power2.inOut" })
+        .to(laptop, { x: '-65%', duration: 1.5, ease: "power2.inOut" }, "+=1")
+        .to(rightText, { autoAlpha: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1");
+
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    }
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="h-screen w-full overflow-hidden relative">
+      <div ref={laptopRef} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <Image
+          src={data.VisionImage.src}
+          alt="Laptop"
+          width={1028} // Ensure dimensions are integers
+          height={720}
+          priority // Use priority for critical images
+        />
+      </div>
+      <div ref={leftTextRef} className="flex flex-col gap-5 absolute top-1/2 left-[15%] transform -translate-y-1/2 w-[34%]">
+        <h1 className="text-[45.59px] font-semibold leading-[50px]">
+          Client’s <span style={{ color: data.brandColor }}>Vision</span> Behind The Project
+        </h1>
+        {data.visionTitle?.map((item, index) => (
+          <p className="text-[#8A90A2] text-lg leading-[32px]" key={index}>{item}</p>
+        ))}
+      </div>
+
+      <div ref={rightTextRef} className="flex flex-col gap-5 absolute top-1/2 right-[20%] transform -translate-y-1/2 w-[34%]">
+        <h1 className="text-[45.59px] font-semibold leading-[50px]">
+          Problems <span style={{ color: data.brandColor }}>Faced By</span> The Client
+        </h1>
+        <ul className="list-disc pl-5">
+          {data.visionProblem?.map((item, index) => (
+            <li className="text-[#8A90A2] text-lg leading-[32px]" key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+};
+
+export default ScrollingLaptopAnimation;
