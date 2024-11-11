@@ -5,11 +5,11 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
   return (
     <div className="pt-10">
       <div className="layout flex flex-col items-center gap-10">
-        <h1 className="text-[60px] font-semibold">
+        <h1 className="text-[28px] md:text-[32px] xl:text-[60px] font-semibold">
           Our Provided <span style={{ color: data.brandColor }}>Solution</span>
         </h1>
         <div className="h-[2px] w-[63.98px]" style={{ backgroundColor: data.brandColor }} />
-        <p className="text-lg text-center text-[#8A90A2] md:leading-[34px]">
+        <p className="text-[13px] md:text-[16px] xl:text-lg text-center text-[#8A90A2] md:leading-[24px] xl:leading-[34px] md:w-[80%]">
           {data.providedSoltuionDescription}
         </p>
       </div>
@@ -28,7 +28,7 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
             priority // Load this image with priority
           />
           <div className="flex items-center h-full gap-5">
-            <p className="border-l-4 border-solid border-white leading-[36px] pl-5 text-2xl text-white lg:w-[65%]">
+            <p className="border-l-4 border-solid border-white leading-[36px] pl-5 text-2xl text-white md:w-[75%] xl:w-[65%]">
               {data.providedSolutionLaptopDescription}
             </p>
           </div>

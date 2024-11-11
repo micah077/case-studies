@@ -20,7 +20,7 @@ const TechStack = ({ data }: { data: IData }) => {
         },
         small: {
             breakpoint: { max: 700, min: 464 },
-            items: 2
+            items:2
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
@@ -32,7 +32,7 @@ const TechStack = ({ data }: { data: IData }) => {
         <div className='py-20' style={{ backgroundColor: data.techStackColor }}>
             <div className="layout">
                 <div className="flex w-full flex-col items-center gap-5">
-                    <h1 className='text-[60px] font-semibold text-center'>
+                    <h1 className='text-[28px] md:text-[32px] xl:text-[60px] font-semibold text-center'>
                         Tech Stacks <span style={{ color: data.brandColor }}>Used</span>
                     </h1>
                     <p className='text-center w-[70%] text-[#8A90A2] leading-[30px]'>

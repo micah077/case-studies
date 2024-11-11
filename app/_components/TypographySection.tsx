@@ -40,40 +40,40 @@ const TypographySection = ({ data }: { data: IData }) => {
     return (
         <div className='py-20'>
             <div className="layout flex flex-col gap-10">
-                <h1 className='text-[60px] font-semibold'>
+                <h1 className='text-[40px] xl:text-[60px] font-semibold'>
                     <span style={{ color: data.brandColor }}>Typography</span> and Colors
                 </h1>
-                <div className="flex flex-wrap md:flex-nowrap items-end justify-between">
+                <div className="flex flex-wrap xl:flex-nowrap items-end justify-between">
                     <div className="text-[#92969C]">
                         <div className="flex flex-col leading-[45px]">
-                            <p className='m-0 text-[32px]'>Font Family</p>
-                            <div className="m-0 flex gap-5 font-bold text-[48px]">
+                            <p className='m-0 text-[20px] xl:text-[32px]'>Font Family</p>
+                            <div className="m-0 flex gap-5 font-bold text-[26px] xl:text-[48px]">
                                 <p>{data.typography.family[0]}</p>
                                 {data.typography.family[1] && <p>and</p>}
                                 <p>{data.typography.family[1]}</p>
                             </div>
                         </div>
-                        <div className="mt-10 flex items-center gap-5 text-[32px] font-bold">
+                        <div className="mt-10 flex items-center gap-5 text-[24px] xl:text-[32px] font-bold">
                             {data.typography.weight.map((item, index) => (
                                 <p key={index} className={`font-${item.toLowerCase().replace(/\s/g, '')}`}>{item}</p>
                             ))}
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-2 h-full">
+                    <div className="flex flex-wrap gap-5 xl:flex-col xl:gap-2 h-full">
                         {data.typography.family.slice().reverse().map((item, index) => (
                             <div key={index} className="flex flex-col">
-                                <p className='text-[36px] font-semibold text-[#0F0928]'>{item}</p>
-                                <div className="flex items-center gap-5">
+                                <p className=' text-[24px] xl:text-[36px] font-semibold text-[#0F0928]'>{item}</p>
+                                <div className="flex items-center gap-10 xl:gap-5">
                                     {["bold", "semibold", "medium", "regular"].map((weight, index) => (
-                                        <p key={index} className={`font-${weight} text-[72px] text-[#92969C]`}>Aa</p>
+                                        <p key={index} className={`font-${weight} text-[40px] xl:text-[72px] text-[#92969C]`}>Aa</p>
                                     ))}
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-                <div className="grid grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
                     {data.typography.colorScheme.map((color, index) => (
                         <div key={index} className="col-span-1 shadow-lg rounded-[24px] h-[278px]">
                             <div className={`h-[40%] rounded-t-[24px]`} style={{ backgroundColor: color }} />

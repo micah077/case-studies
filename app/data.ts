@@ -24,7 +24,7 @@ export const pageData = [
         providedSolutionLaptop: Images.providedSolutionLaptop,
         providedSolutionBackground: Images.providedSolutionBackground,
         providedSolutionLaptopDescription: "We collaborated with our client to launch an innovative platform that reimagines consumer engagement. By gamifying interactions, we created a system where users complete various missions, earning points that can be redeemed for rewards, driving participation and loyalty.",
-        featureNumber: 20,
+        featureNumber: "w-full md:w-[30%] lg:w-[20%]",
         featuresAdded: [
             { title: "Magic Link Integration" },
             { title: "Customizable Referral Links" },
@@ -93,7 +93,7 @@ export const pageData = [
         providedSolutionLaptop: Images2.providedSolutionLaptop,
         providedSolutionBackground: Images2.providedSolutionBackground,
         providedSolutionLaptopDescription: "Yuslord launched a dynamic car marketplace that streamlines the entire car trading process. By connecting car dealers, auto transport service providers, and buyers, we created a platform that simplifies buying, selling, shipping, and inspecting vehicles, ensuring a seamless and efficient experience for all users.",
-        featureNumber: 25,
+        featureNumber: "w-full md:w-[30%] lg:w-[25%]",
         featuresAdded: [
             { title: "User Registration", text: "Separate accounts for car dealers, auto transport service providers, and buyers." },
             { title: "Car Search and Listing", text: "Advanced search options and detailed car listings with multiple images." },
@@ -166,7 +166,7 @@ export type IData = {
     providedSolutionBackground: StaticImageData;
     providedSolutionLaptop: StaticImageData;
     providedSolutionLaptopDescription: string;
-    featureNumber: number;
+    featureNumber: string;
     featuresAdded: {
         title: string;
         text?: string

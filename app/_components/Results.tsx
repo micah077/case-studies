@@ -6,14 +6,14 @@ const Results = ({ data }: { data: IData }) => {
         <div className='my-20 layout'>
             <div className="flex flex-col gap-5">
 
-                <div className="flex flex-col gap-2">
-                    <h1 className='text-[#0F0928] font-semibold text-[60px]'>Results Achieved</h1>
-                    <p className='text-[#8A90A2] text-lg'>We achieved the following results:</p>
+                <div className="flex flex-col gap-1 md:gap-2">
+                    <h1 className='text-[#0F0928] font-semibold text-[28px] text-center md:text-left md:text-[32px] xl:text-[60px]'>Results Achieved</h1>
+                    <p className='text-[#8A90A2] text-center md:text-left text-[14px] md:text-lg'>We achieved the following results:</p>
                 </div>
 
-                <div className="grid grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
                     {data?.results?.map((item, index) => (
-                        <div key={index} className="mt-5 col-span-1 flex flex-col gap-4">
+                        <div key={index} className="mt-5 col-span-1 items-center md:text-start flex flex-col gap-4">
                             <Image 
                                 width={90} 
                                 height={90} 
@@ -22,7 +22,7 @@ const Results = ({ data }: { data: IData }) => {
                                 className='object-contain' 
                             />
                             <p className='text-[#454F5C] font-bold'>{item.title}</p>
-                            <p className='text-[#8A90A2] text-lg font-medium'>{item.description}</p>
+                            <p className='text-[#8A90A2] text-center md:text-left text-lg font-medium'>{item.description}</p>
                         </div>
                     ))}
                 </div>
