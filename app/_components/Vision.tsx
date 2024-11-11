@@ -5,16 +5,19 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { IData } from '../data';
+import { useScreenWidth } from '@/lip/useScreenWidth';
 
 const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const laptopRef = useRef<HTMLDivElement>(null);
   const leftTextRef = useRef<HTMLDivElement>(null);
   const rightTextRef = useRef<HTMLDivElement>(null);
-
+  const isMobile = useScreenWidth(767)
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
+    if(isMobile){
+
     const section = sectionRef.current;
     const laptop = laptopRef.current;
     const leftText = leftTextRef.current;
@@ -45,10 +48,13 @@ const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       };
     }
-  }, []);
+  }
+
+  }, [isMobile]);
 
   return (
-    <section ref={sectionRef} className="h-screen w-full overflow-hidden relative">
+    <>
+    <section ref={sectionRef} className="h-screen w-full hidden md:inline-block overflow-hidden relative">
       <div ref={laptopRef} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <Image
           src={data.VisionImage.src}
@@ -78,6 +84,42 @@ const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
         </ul>
       </div>
     </section>
+
+    {/* mobile */}
+
+    <section className="py-10 px-10 flex flex-col gap-10 w-full  md:hidden overflow-hidden relative">
+     
+      <div className="flex flex-col">
+        <h1 className="text-[28px] font-semibold">
+          Client’s <span style={{ color: data.brandColor }}>Vision</span> Behind The Project
+        </h1>
+        {data.visionTitle?.map((item, index) => (
+          <p className="text-[#8A90A2] text-[13px]" key={index}>{item}</p>
+        ))}
+      </div>
+
+      <div className="">
+        <Image
+          src={data.VisionImage.src}
+          alt="Laptop"
+          height={229.82} // Ensure dimensions are integers
+          width={328}
+          priority // Use priority for critical images
+        />
+      </div>
+
+      <div className="flex flex-col gap-5 ">
+        <h1 className="text-[28px] font-semibold leading-[50px]">
+          Problems <span style={{ color: data.brandColor }}>Faced By</span> The Client
+        </h1>
+        <ul className="list-disc pl-5">
+          {data.visionProblem?.map((item, index) => (
+            <li className="text-[#8A90A2] text-[13px]" key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+    </>
   );
 };
 
