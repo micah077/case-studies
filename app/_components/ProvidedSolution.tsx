@@ -16,11 +16,11 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
 
       <div 
         style={{ backgroundImage: `url(${data.providedSolutionBackground.src})` }} 
-        className="mt-80 pb-10 bg-cover bg-no-repeat"
+        className="mt-40 md:mt-80 pb-10 bg-cover bg-no-repeat"
       >
         <div className="layout flex flex-col justify-center">
           <Image 
-            className="md:mt-[-290px]" 
+            className="mt-[-150px] md:mt-[-290px]" 
             alt="Provided Solution Image" 
             height={997} 
             width={1428} // Adjusted to integer
@@ -28,7 +28,7 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
             priority // Load this image with priority
           />
           <div className="flex items-center h-full gap-5">
-            <p className="border-l-4 border-solid border-white leading-[36px] pl-5 text-2xl text-white md:w-[75%] xl:w-[65%]">
+            <p className="border-l-4 border-solid border-white xl:leading-[36px] pl-5 text-[14px] md:text-[20px] xl:text-2xl text-white md:w-[75%] xl:w-[65%]">
               {data.providedSolutionLaptopDescription}
             </p>
           </div>
