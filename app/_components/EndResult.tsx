@@ -25,17 +25,17 @@ const EndResult = ({ data }: { data: IData }) => {
             </div>
             <img 
                 src={data.endResultBottomLeft.src} 
-                className='absolute bottom-0 left-0 w-[200px] h-[200px]' 
+                className='hidden md:inline absolute bottom-0 left-0 w-[200px] h-[200px]' 
                 alt="Decorative element left bottom" 
             />
             <img 
                 src={data.endResultBottomRight.src} 
-                className='absolute bottom-0 right-0 w-[120px] h-[160px]' 
+                className='hidden md:inline absolute bottom-0 right-0 w-[120px] h-[160px]' 
                 alt="Decorative element right bottom" 
             />
             <img 
                 src={data.endResultTopRight.src} 
-                className='absolute top-0 right-0 w-[93px] h-[101px]' 
+                className='hidden md:inline absolute top-0 right-0 w-[93px] h-[101px]' 
                 alt="Decorative element top right" 
             />
         </div>

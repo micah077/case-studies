@@ -13,7 +13,7 @@ const Results = ({ data }: { data: IData }) => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
                     {data?.results?.map((item, index) => (
-                        <div key={index} className="mt-5 col-span-1 items-center md:text-start flex flex-col gap-4">
+                        <div key={index} className="mt-5 col-span-1 items-center md:items-start md:text-left flex flex-col gap-4">
                             <Image 
                                 width={90} 
                                 height={90} 

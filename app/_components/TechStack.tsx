@@ -20,7 +20,7 @@ const TechStack = ({ data }: { data: IData }) => {
         },
         small: {
             breakpoint: { max: 700, min: 464 },
-            items:2
+            items: 2
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
@@ -38,18 +38,19 @@ const TechStack = ({ data }: { data: IData }) => {
                     <p className='text-center w-[70%] text-[#8A90A2] leading-[30px]'>
                         Our project employs a modern and efficient combination of technologies for both the backend and frontend, ensuring robust performance and scalability. The chosen stack allows for seamless data management and responsive user interfaces.
                     </p>
-                    <div className="w-full mt-10 overflow-hidden">
-                        <Carousel 
+                    <div className="w-[221px] md:w-full  mt-10 overflow-hidden">
+                        <Carousel
                             arrows={false}
                             renderButtonGroupOutside
                             removeArrowOnDeviceType={["tablet", "mobile"]}
-                            autoPlay 
-                            shouldResetAutoplay 
-                            autoPlaySpeed={1500} 
-                            infinite 
-                            className="w-full mt-5" 
+                            autoPlay
+                            shouldResetAutoplay
+                            autoPlaySpeed={1500}
+                            infinite
+                            className="w-full mt-5"
                             responsive={responsive}
                         >
+
                             {data.techStack.map((item, index) => (
                                 <div key={index} className="flex my-5 w-[221px] h-[268px] flex-col justify-between items-center gap-5 bg-white shadow-lg rounded-2xl p-5 flex-shrink-0">
                                     <img src={item.img.src} className='h-[30%] object-cover' alt={item.title} />

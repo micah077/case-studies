@@ -38,9 +38,9 @@ const TypographySection = ({ data }: { data: IData }) => {
     if (!isMounted) return null;
 
     return (
-        <div className='py-20'>
+        <div className='py-20 px-5 md:px-0'>
             <div className="layout flex flex-col gap-10">
-                <h1 className='text-[40px] xl:text-[60px] font-semibold'>
+                <h1 className='text-[28px] md:text-[40px] xl:text-[60px] font-semibold'>
                     <span style={{ color: data.brandColor }}>Typography</span> and Colors
                 </h1>
                 <div className="flex flex-wrap xl:flex-nowrap items-end justify-between">
@@ -53,14 +53,14 @@ const TypographySection = ({ data }: { data: IData }) => {
                                 <p>{data.typography.family[1]}</p>
                             </div>
                         </div>
-                        <div className="mt-10 flex items-center gap-5 text-[24px] xl:text-[32px] font-bold">
+                        <div className="mt-10 flex flex-wrap md:flex-nowrap items-center gap-5 text-lg md:text-[24px] xl:text-[32px] font-bold">
                             {data.typography.weight.map((item, index) => (
                                 <p key={index} className={`font-${item.toLowerCase().replace(/\s/g, '')}`}>{item}</p>
                             ))}
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-5 xl:flex-col xl:gap-2 h-full">
+                    <div className="mt-20 md:mt-0 flex flex-wrap gap-5 xl:flex-col xl:gap-2 h-full">
                         {data.typography.family.slice().reverse().map((item, index) => (
                             <div key={index} className="flex flex-col">
                                 <p className=' text-[24px] xl:text-[36px] font-semibold text-[#0F0928]'>{item}</p>
@@ -98,7 +98,7 @@ const TypographySection = ({ data }: { data: IData }) => {
                 </div>
             </div>
 
-            <div ref={containerRef} style={{ backgroundImage: `url(${data.providedSolutionBackground.src})` }} className="mx-10 mt-40 pb-10 bg-cover bg-no-repeat">
+            <div ref={containerRef} style={{ backgroundImage: `url(${data.providedSolutionBackground.src})` }} className="md:mx-10 mt-40 pb-10 bg-cover bg-no-repeat">
                 <div className="pt-10 layout flex flex-col items-center justify-end h-full">
                     <div className="flex items-end">
                         <div className="mr-[-120px] relative z-10">
