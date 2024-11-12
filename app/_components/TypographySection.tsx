@@ -10,6 +10,7 @@ const TypographySection = ({ data }: { data: IData }) => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [isMounted, setIsMounted] = useState(false);
     const isMobile = useScreenWidth(600)
+    const isTablet = useScreenWidth(1024)
 
     useEffect(() => {
         setIsMounted(true);
@@ -108,8 +109,8 @@ const TypographySection = ({ data }: { data: IData }) => {
                             <img className={`absolute ${isMobile ? "top-8 left-[50px]" : "top-16 left-[-40px]"} ${isMobile && "h-[40.18px] w-[66.81px]"}`} src={data.typographyLaptop.mobileLeft.src} style={leftImageStyle} />
                         </div>
                         <div className="relative">
-                            <Image width={isMobile ? 261 : 1121.37} height={isMobile ? 156 : 659} alt='laptop' className='object-contain z-1' src={data.typographyLaptop.laptopScreen.src} />
-                            <img className={`absolute  ${isMobile ? "h-[87.49px] w-[66.61px] top-8 right-[50px]":"top-24 right-[100px]"}`} src={data.typographyLaptop.laptopEight.src} style={rightImageStyle} />
+                            <Image width={isMobile ? 261 :isTablet?566: 1121.37} height={isMobile ? 156 :isTablet?338: 659} alt='laptop' className='object-contain z-1' src={data.typographyLaptop.laptopScreen.src} />
+                            <img className={`absolute  ${isMobile ? "h-[87.49px] w-[66.61px] top-8 right-[50px]" :isTablet ? "h-[187.49px] w-[143.61px] top-8 right-[50px]" : "top-24 right-[100px]"}`} src={data.typographyLaptop.laptopEight.src} style={rightImageStyle} />
                         </div>
                     </div>
                 </div>
