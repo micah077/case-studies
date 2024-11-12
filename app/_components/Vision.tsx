@@ -16,7 +16,7 @@ const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    if(isMobile){
+    if(!isMobile){
 
     const section = sectionRef.current;
     const laptop = laptopRef.current;
