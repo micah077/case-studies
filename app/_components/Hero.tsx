@@ -63,7 +63,7 @@ const Hero = ({ data }: { data: IData }) => {
                   width={70.38}
                   src={data.heroLeftIcon.src}
                 />
-                <p className="text-3xl tracking-[10px] font-bold">
+                <p className="text-[20px] md:text-[28px] xl:text-3xl tracking-[10px] font-bold">
                   {data.heroLeftTitle.toUpperCase()}
                 </p>
               </div>
@@ -77,12 +77,12 @@ const Hero = ({ data }: { data: IData }) => {
                 <img src={data.heroLeftWebsiteIcon.src} alt="website icon" />
               </div>
 
-              <div className="flex items-center gap-5 mt-20 flex-wrap">
+              <div className="flex items-center gap-5 mt-20 ">
                 {['Platforms', 'Deliverables'].map((title, index) => (
                   <div key={index} className="flex gap-5">
                     <img src={data.heroRightPlaformBorder.src} alt={`${title} border`} />
                     <div className="flex flex-col gap-3">
-                      <p className="text-white/80">{title}</p>
+                      <p className="text-sm md:text-md text-white/80">{title}</p>
                       <div className="flex items-center gap-2">
                         <Image
                           height={24}
@@ -90,7 +90,7 @@ const Hero = ({ data }: { data: IData }) => {
                           alt={`${title.toLowerCase()} icon`}
                           src={title === 'Platforms' ? data.PlatformIcon.src : data.DeliverablesIcon.src}
                         />
-                        <p>{title === 'Platforms' ? data.platformText : data.deliverablesText}</p>
+                        <p className='text-[12px] md:text-md' >{title === 'Platforms' ? data.platformText : data.deliverablesText}</p>
                       </div>
                     </div>
                   </div>

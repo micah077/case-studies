@@ -3,11 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IData } from '../data';
 import { hexToRgb } from '@/lip/helper';
 import Image from 'next/image';
+import { useScreenWidth } from '@/lip/useScreenWidth';
 
 const TypographySection = ({ data }: { data: IData }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [scrollProgress, setScrollProgress] = useState(0);
     const [isMounted, setIsMounted] = useState(false);
+    const isMobile = useScreenWidth(600)
 
     useEffect(() => {
         setIsMounted(true);
@@ -64,7 +66,7 @@ const TypographySection = ({ data }: { data: IData }) => {
                         {data.typography.family.slice().reverse().map((item, index) => (
                             <div key={index} className="flex flex-col">
                                 <p className=' text-[24px] xl:text-[36px] font-semibold text-[#0F0928]'>{item}</p>
-                                <div className="flex items-center gap-10 xl:gap-5">
+                                <div className="flex items-center gap-5 md:gap-10 xl:gap-5">
                                     {["bold", "semibold", "medium", "regular"].map((weight, index) => (
                                         <p key={index} className={`font-${weight} text-[40px] xl:text-[72px] text-[#92969C]`}>Aa</p>
                                     ))}
@@ -84,13 +86,13 @@ const TypographySection = ({ data }: { data: IData }) => {
                             </div>
                             <div className="h-[40%] mt-5 flex flex-col justify-between">
                                 <div className="px-5 flex items-center justify-between">
-                                    <p className='text-[22px] font-bold'>RGB</p>
-                                    <p className='text-[#80868A] text-[22px]'>{hexToRgb(color)}</p>
+                                    <p className='text-lg lg:text-[22px] font-bold'>RGB</p>
+                                    <p className='text-[#80868A] text-lg lg:text-[22px]'>{hexToRgb(color)}</p>
                                 </div>
                                 <div className="h-[1px] w-full bg-[#80868A]" />
                                 <div className="px-5 flex items-center justify-between">
-                                    <p className='text-[22px] font-bold'>HEX</p>
-                                    <p className='text-[#80868A] text-[22px]'>{color}</p>
+                                    <p className='text-lg lg:text-[22px] font-bold'>HEX</p>
+                                    <p className='text-[#80868A] text-lg lg:text-[22px]'>{color}</p>
                                 </div>
                             </div>
                         </div>
@@ -98,16 +100,16 @@ const TypographySection = ({ data }: { data: IData }) => {
                 </div>
             </div>
 
-            <div ref={containerRef} style={{ backgroundImage: `url(${data.providedSolutionBackground.src})` }} className="md:mx-10 mt-40 pb-10 bg-cover bg-no-repeat">
-                <div className="pt-10 layout flex flex-col items-center justify-end h-full">
+            <div ref={containerRef} style={{ backgroundImage: `url(${data.providedSolutionBackground.src})` }} className="md:mx-10 mt-20 md:mt-40 pb-10 bg-cover bg-no-repeat">
+                <div className="pb-10 md:pb-0 pt-10 layout flex flex-col items-center justify-end h-full">
                     <div className="flex items-end">
-                        <div className="mr-[-120px] relative z-10">
-                            <Image alt='mobile' height={540} width={261} className='object-contain mr-[-20px] z-10' src={data.typographyLaptop.mobileScreen.src} />
-                            <img className='absolute top-16 left-[-40px]' src={data.typographyLaptop.mobileLeft.src} style={leftImageStyle} />
+                        <div className={`${isMobile ? "mr-[-20px] mb-[-60px] " : "mr-[-120px]"} relative z-10`}>
+                            <Image alt='mobile' height={isMobile ? 60 : 540} width={isMobile ? 124 : 261} className='object-contain mr-[-20px] z-10' src={data.typographyLaptop.mobileScreen.src} />
+                            <img className={`absolute ${isMobile ? "top-8 left-[50px]" : "top-16 left-[-40px]"} ${isMobile && "h-[40.18px] w-[66.81px]"}`} src={data.typographyLaptop.mobileLeft.src} style={leftImageStyle} />
                         </div>
                         <div className="relative">
-                            <Image width={1121.37} height={659} alt='laptop' className='object-contain z-1' src={data.typographyLaptop.laptopScreen.src} />
-                            <img className='absolute top-24 right-[100px]' src={data.typographyLaptop.laptopEight.src} style={rightImageStyle} />
+                            <Image width={isMobile ? 261 : 1121.37} height={isMobile ? 156 : 659} alt='laptop' className='object-contain z-1' src={data.typographyLaptop.laptopScreen.src} />
+                            <img className={`absolute  ${isMobile ? "h-[87.49px] w-[66.61px] top-8 right-[50px]":"top-24 right-[100px]"}`} src={data.typographyLaptop.laptopEight.src} style={rightImageStyle} />
                         </div>
                     </div>
                 </div>

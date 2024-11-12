@@ -1,7 +1,10 @@
+"use client"
 import Image from 'next/image';
 import { IData } from '../data';
+import { useScreenWidth } from '@/lip/useScreenWidth';
 
 const ProvidedSolution = ({ data }: { data: IData }) => {
+  const isMobile = useScreenWidth(767)
   return (
     <div className="pt-10">
       <div className="layout flex flex-col items-center gap-10">
@@ -22,8 +25,8 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
           <Image 
             className="mt-[-150px] md:mt-[-290px]" 
             alt="Provided Solution Image" 
-            height={997} 
-            width={1428} // Adjusted to integer
+            height={isMobile ? 223 :997} 
+            width={isMobile ? 324 : 1428} // Adjusted to integer
             src={data.providedSolutionLaptop.src} 
             priority // Load this image with priority
           />

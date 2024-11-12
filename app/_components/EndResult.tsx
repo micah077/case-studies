@@ -8,15 +8,15 @@ const EndResult = ({ data }: { data: IData }) => {
         <div className='py-40 relative'>
             <div className="layout">
                 <div className="flex flex-col gap-5 items-center">
-                    <h1 className='text-[#0A141F] text-[60px] font-semibold'>End Results</h1>
-                    <p className='text-lg text-[#292929] text-center leading-[33px] w-[85%]'>
+                    <h1 className='text-[#0A141F] text-[28px] md:text-[60px] font-semibold'>End Results</h1>
+                    <p className='text-[12px] md:text-lg text-[#292929] text-center md:leading-[33px] w-[85%]'>
                         {data?.endResultDescription}
                     </p>
                     <div className="mt-10 group cursor-pointer hover:bg-orange-600 border border-black shadow-lg px-6 py-3 rounded-full flex items-center justify-center gap-3 transition-colors duration-300">
                         <p className='m-0 text-black'>Schedule free consultation</p>
                         <IoChevronForwardOutline size={20} className='m-0 text-black' />
                     </div>
-                    <div className="mt-10 flex items-center gap-2 text-[#6A6A8E] text-xl">
+                    <div className="mt-10 flex items-center gap-2 text-[#6A6A8E] text-[12px] md:text-xl">
                         <p>Or call us now</p>
                         <FaPhoneAlt color='#6A6A8E' />
                         <p>+1 (631) **4-05*9</p>

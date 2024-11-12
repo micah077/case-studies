@@ -12,7 +12,7 @@ const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
   const laptopRef = useRef<HTMLDivElement>(null);
   const leftTextRef = useRef<HTMLDivElement>(null);
   const rightTextRef = useRef<HTMLDivElement>(null);
-  const isMobile = useScreenWidth(767)
+  const isMobile = useScreenWidth(600)
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
