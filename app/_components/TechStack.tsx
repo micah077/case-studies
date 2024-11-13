@@ -15,12 +15,12 @@ const TechStack = ({ data }: { data: IData }) => {
             items: 5
         },
         tablet: {
-            breakpoint: { max: 1024, min: 700 },
+            breakpoint: { max: 1024, min: 819 },
             items: 3 // Adjusted for better tablet experience
         },
         small: {
             breakpoint: { max: 700, min: 464 },
-            items: 2
+            items: 1
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
