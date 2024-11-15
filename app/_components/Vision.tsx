@@ -37,11 +37,11 @@ const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
         },
       });
 
-      tl.to(laptop, { x: '65%', duration: 1.5, ease: "power2.inOut" })
+      tl.to(laptop, { x: '70%', duration: 1.5, ease: "power2.inOut" })
         .to(leftText, { autoAlpha: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1")
         .to(leftText, { autoAlpha: 0, y: -100, duration: 1.5, ease: "power2.in" }, "+=1")
         .to(laptop, { x: '0%', duration: 1.5, ease: "power2.inOut" })
-        .to(laptop, { x: '-65%', duration: 1.5, ease: "power2.inOut" }, "+=1")
+        .to(laptop, { x: '-70%', duration: 1.5, ease: "power2.inOut" }, "+=1")
         .to(rightText, { autoAlpha: 1, y: 0, duration: 1.5, ease: "power2.out" }, "-=1");
 
       return () => {
@@ -64,22 +64,22 @@ const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
           priority // Use priority for critical images
         />
       </div>
-      <div ref={leftTextRef} className="flex flex-col gap-5 absolute top-1/2 left-[15%] transform -translate-y-1/2 w-[34%]">
-        <h1 className="text-[45.59px] font-semibold leading-[50px]">
+      <div ref={leftTextRef} className="flex flex-col gap-5 absolute top-1/2 left-[5%] lg:left-[15%] transform -translate-y-1/2 w-[45%] lg:w-[34%]">
+        <h1 className="text-[32px] lg:text-[45.59px] font-semibold leading-[40px] lg:leading-[50px]">
           Client’s <span style={{ color: data.brandColor }}>Vision</span> Behind The Project
         </h1>
         {data.visionTitle?.map((item, index) => (
-          <p className="text-[#8A90A2] text-lg leading-[32px]" key={index}>{item}</p>
+          <p className="text-[#8A90A2] text-sm lg:text-lg lg:leading-[32px]" key={index}>{item}</p>
         ))}
       </div>
 
-      <div ref={rightTextRef} className="flex flex-col gap-5 absolute top-1/2 right-[20%] transform -translate-y-1/2 w-[34%]">
-        <h1 className="text-[45.59px] font-semibold leading-[50px]">
+      <div ref={rightTextRef} className="flex flex-col gap-5 absolute top-1/2 right-[5%] lg:right-[20%] transform -translate-y-1/2 w-[50%] lg:w-[34%]">
+        <h1 className="text-[32px] lg:text-[45.59px] font-semibold leading-[40px] lg:leading-[50px]">
           Problems <span style={{ color: data.brandColor }}>Faced By</span> The Client
         </h1>
         <ul className="list-disc pl-5">
           {data.visionProblem?.map((item, index) => (
-            <li className="text-[#8A90A2] text-lg leading-[32px]" key={index}>{item}</li>
+            <li className="text-[#8A90A2] text-sm lg:text-lg lg:leading-[32px]" key={index}>{item}</li>
           ))}
         </ul>
       </div>
