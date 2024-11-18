@@ -82,7 +82,7 @@ const Hero = ({ data }: { data: IData }) => {
                   <div key={index} className="flex gap-5">
                     <img src={data.heroRightPlaformBorder.src} alt={`${title} border`} />
                     <div className="flex flex-col gap-3">
-                      <p className="text-sm md:text-md text-white/80">{title}</p>
+                      <p className="text-sm md:text-md text-white/80">{title}:</p>
                       <div className="flex items-center gap-2">
                         <Image
                           height={24}

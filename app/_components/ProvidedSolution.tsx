@@ -21,16 +21,16 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
         style={{ backgroundImage: `url(${data.providedSolutionBackground.src})` }} 
         className="mt-40 md:mt-80 pb-10 bg-cover bg-no-repeat"
       >
-        <div className="layout flex flex-col justify-center">
+        <div className="layout flex flex-col ">
           <Image 
             className="mt-[-150px] md:mt-[-290px]" 
             alt="Provided Solution Image" 
             height={isMobile ? 223 :997} 
-            width={isMobile ? 324 : 1428} // Adjusted to integer
+            width={isMobile ? 324 : 1447} // Adjusted to integer
             src={data.providedSolutionLaptop.src} 
             priority // Load this image with priority
           />
-          <div className="flex items-center h-full gap-5">
+          <div className="lg:ml-10 flex items-center h-full gap-5">
             <p className="border-l-4 border-solid border-white xl:leading-[36px] pl-5 text-[14px] md:text-[20px] xl:text-2xl text-white md:w-[75%] xl:w-[65%]">
               {data.providedSolutionLaptopDescription}
             </p>

@@ -12,8 +12,8 @@ const EndResult = ({ data }: { data: IData }) => {
                     <p className='text-[12px] md:text-lg text-[#292929] text-center md:leading-[33px] w-[85%]'>
                         {data?.endResultDescription}
                     </p>
-                    <div className="mt-10 group cursor-pointer hover:bg-orange-600 border border-black shadow-lg px-6 py-3 rounded-full flex items-center justify-center gap-3 transition-colors duration-300">
-                        <p className='m-0 text-black'>Schedule free consultation</p>
+                    <div className="mt-10 group cursor-pointer hover:bg-orange-600 border-[2px] border-[#000248] shadow-lg px-6 py-3 rounded-full flex items-center justify-center gap-3 transition-colors duration-300">
+                        <p className='m-0 text-[#050748]'>Schedule free consultation</p>
                         <IoChevronForwardOutline size={20} className='m-0 text-black' />
                     </div>
                     <div className="mt-10 flex items-center gap-2 text-[#6A6A8E] text-[12px] md:text-xl">
