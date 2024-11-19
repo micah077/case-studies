@@ -17,7 +17,7 @@ export default async function Home({ params }: { params: Promise<{ id: string }>
         <ProvidedSolution key="provided-solution" data={data} />,
         <Feature key="feature" data={data} />,
         <ImageSlider key="image-slider" data={data} />,
-        <TypographySection key="typography-section" data={data} />,
+        <TypographySection id={id} key="typography-section" data={data} />,
         <Results key="results" data={data} />,
         <TechStack key="tech-stack" data={data} />,
         <EndResult key="end-result" data={data} />
