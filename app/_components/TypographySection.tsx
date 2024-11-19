@@ -57,7 +57,7 @@ const TypographySection = ({ data }: { data: IData }) => {
                                     <p>{data.typography.family[1]}</p>
                                 </div>
                             </div>
-                            <div className="flex flex-wrap md:flex-nowrap items-center gap-5 text-lg md:text-[24px] xl:text-[32px] font-bold">
+                            <div className="flex flex-wrap md:flex-nowrap items-center gap-5 text-lg md:text-[24px] xl:text-[32px]">
                                 {data.typography.weight.map((item, index) => (
                                     <p key={index} className={`font-${item.toLowerCase().replace(/\s/g, '')}`}>{item}</p>
                                 ))}
