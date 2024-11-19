@@ -45,7 +45,7 @@ export const pageData = [
             { title: "Scalable and Performant Backend", description: "Ensures robust performance and scalability.", img: Images.result5 },
             { title: "Reward-Based Engagement", description: "Encourages user participation through NCTR rewards.", img: Images.result6 },
         ],
-        resultVideo: "https://s3-figma-videos-production-sig.figma.com/video/1186580512184340810/TEAM/f0bd/9d28/-5b85-49da-ae03-de666e2e28f4?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Bqmmabzkmgf-WFKYD45~qITJtiag~74Kq0Rj15nabaR5hY1AerAH1bKX1DWQHCgN9Rdau2~WP618fZC~rcbMlQ9hoqnwhDj6bcvsACfeWV6l6ZdQZA7w2Xh4JDFbUZk3KgimJ35sXx~Sed~umuQ7GeE8pyfPtVYCqk6It7QOHcT9GHMKCT~cjlnKo39F2hOyk9UOxRwZuaEduk77W2pEs0bcl28rNhoMkwFQQftLH9ev21lAL4Xk8COi1~uK5OVR14UlCK1XW9d1fCf76hvODzrKKtxUUkv34Yk2IxeU-SGWHXKCTxAUp0l6Q9zQde325ws~pry1Bz2UJQKLZq0DiQ__",
+        resultVideo: '/Garden.mp4',
         techStackColor: "#EBFFFCB2",
         techStack: [
             { img: Images.tech1, title: "Frameworks", text: "Next.js for the front-end development." },
@@ -116,7 +116,7 @@ export const pageData = [
             { title: "Fast Search Capabilities", description: "Fast Search Capabilities Streamlines the process of finding cars, contributing to a more efficient trading experience.", img: Images2.result5 },
             { title: "Enhanced User Engagement", description: "Enhanced User Engagement Interactive features foster trust and satisfaction, making the marketplace experience more engaging.", img: Images2.result6 },
         ],
-        resultVideo: "https://s3-figma-videos-production-sig.figma.com/video/1186580512184340810/TEAM/059d/e665/-79f7-4b2c-be9d-7bb8d9657412?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oPpgbV1HghcpXUS4KBTOrMtI14Cb9mcor67kvwlDFlOZNZUdxZMIWSkyV3bQWe4hjARsRlNSmKyR-x7eDnt1Tygd1zHGPoms5~raLNO8GsuaJbbXDNcWJ~pe7AInbwmtc6m9JN8KZgDUk1ROAsvH63ORhL3xU31Fd6kMfif6919hArS3HT1P8wjN-Hcqe6UBb3Vwb8jUVvNxEQpBJpqTyru~HVpRNrH5M98K654rMk1IwKKwuSasPwO7oYRFpWgVBRC~oSfq-SoVDlCw3gf~uOw-v~pQjV-6qMyiIR1Yl0xKygiX1BfpnsGJa~CVXzWzvZWp8DhWIVaaTl~ilLFUYw__",
+        resultVideo: '/Yuslord.mp4',
         techStackColor: "#FFFAF2",
         techStack: [
             { img: Images2.tech1, title: "Programming Languages", text: "JavaScript, HTML, CSS." },
