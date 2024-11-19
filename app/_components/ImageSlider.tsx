@@ -5,11 +5,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IData } from "../data";
 import Image from "next/image";
+import { useScreenWidth } from "@/lip/useScreenWidth";
 
 export default function ImageSlider({ data }: { data: IData }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const isLargeScreen = useScreenWidth(1280)
+  console.log(isLargeScreen,'isLargeScreen')
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const container = containerRef.current;
@@ -41,7 +44,7 @@ export default function ImageSlider({ data }: { data: IData }) {
       },
     });
 
-    const xPercent = -100;
+    const xPercent = !isLargeScreen &&data.imageSlide.length ===3 ? -83: -100;
     tl.to(sections, {
       xPercent: xPercent * (totalPanels - 1),
       ease: "none",
