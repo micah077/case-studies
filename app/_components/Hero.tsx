@@ -72,7 +72,7 @@ const Hero = ({ data }: { data: IData }) => {
                 {data?.heroLeftDescription}
               </p>
 
-              <div className="mt-10 flex items-center gap-5">
+              <div className="mt-10 flex items-center gap-3">
                 <p>VISIT WEBSITE</p>
                 <img src={data.heroLeftWebsiteIcon.src} alt="website icon" />
               </div>
