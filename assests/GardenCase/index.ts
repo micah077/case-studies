@@ -29,7 +29,7 @@ import tech5 from './tech5.png'
 import engResultTopRight from './engResultTopRight.png'
 import engResultBottomRight from './engResultBottomRight.png'
 import engResultBottomLeft from './engResultBottomLeft.png'
-import ImageSliderBg from './ImageSliderBg.png'
+import ImageSliderBg from './ImageSliderBg2.png'
 
 import typographylaptopRight from './typographylaptopRight.png'
 import typographylaptopScreen from './typographylaptopScreen.png'

@@ -71,7 +71,7 @@ export default function ImageSlider({ data }: { data: IData }) {
         backgroundColor: activeImage?.showColor ? activeImage.color : "#ffffff",
         backgroundImage: !activeImage?.showColor ? `url(${activeImage.bgImage?.src})` : "none"
       }}
-      className="bg-cover overflow-x-hidden"
+      className="bg-cover bg-center overflow-x-hidden"
     >
       <div className="h-screen flex container" ref={containerRef}>
         {data.imageSlide.map((image, index) => (

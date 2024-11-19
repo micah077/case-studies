@@ -36,6 +36,7 @@ export const pageData = [
             { title: "Video and Content Missions" },
             { title: "Optimized Backend APIs" }
         ],
+        featuresAddedGradient:{start:"#2C82E1",end:"#7B60E2"},
         imageSlide: [{ showColor: false, bgImage: Images.ImageSliderBg, color: '#ffffff', image: Images.slideImage1 }, { showColor: true, color: '#2C82E1', image: Images.slideImage2 }, { bgImage: Images.ImageSliderBg, showColor: false, color: '#ffffff', image: Images.slideImage3 }],
         results: [
             { title: "Enhanced User Engagement", description: "Missions, real-time notifications, and email updates boost user interaction.", img: Images.result1 },
@@ -103,6 +104,7 @@ export const pageData = [
             { title: "Community Pages", text: "Separate accounts for car dealers, auto transport service providers, and buyers." },
             { title: "Admin Dashboard", text: "Separate accounts for car dealers, auto transport service providers, and buyers." },
         ],
+        featuresAddedGradient:{start:"#FFBD59",end:"#FFBD59"},
         imageSlide: [
             { showColor: false, bgImage: Images.ImageSliderBg, color: '#ffffff', image: Images2.slideImage1 },
             { showColor: true, color: '#FFBD59', image: Images2.slideImage2 },
@@ -171,6 +173,10 @@ export type IData = {
         title: string;
         text?: string
     }[];
+    featuresAddedGradient: {
+        start: string;
+        end?: string
+    };
     imageSlide: {
         color: string;
         image: StaticImageData;

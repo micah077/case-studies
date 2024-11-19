@@ -24,11 +24,11 @@ const Feature = ({ data }: { data: IData }) => {
                             >
                                 <div 
                                     className='rounded-full p-1' 
-                                    style={{ background: `linear-gradient(180deg, ${data.brandColor}, ${hexToRgba(data.brandColor, 0.8)})` }}
+                                    style={{ background: `linear-gradient(90deg, ${data.featuresAddedGradient.start}, ${data.featuresAddedGradient.end})` }}
                                 >
                                     <div
                                         style={{
-                                            background: isHovered ? `linear-gradient(60deg, ${data.brandColor}, ${hexToRgba(data.brandColor, 0.6)})` : "#ffffff",
+                                            background: isHovered ? `linear-gradient(90deg, ${data.featuresAddedGradient.start}, ${data.featuresAddedGradient.end})` : "#ffffff",
                                         }}
                                         onMouseEnter={() => setHoveredId(index)}
                                         onMouseLeave={() => setHoveredId(null)}
