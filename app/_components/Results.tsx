@@ -29,8 +29,8 @@ const Results = ({ data }: { data: IData }) => {
             </div>
 
             {data.resultVideo && (
-                <div className="mt-40 p-1 border border-solid border-[#E7E7E7] rounded-md">
-                    <video className='w-full' src={data.resultVideo} autoPlay loop muted />
+                <div className="mt-40 border border-solid border-[#E7E7E7] rounded-md">
+                    <video className='w-full object-cover rounded-md' src={data.resultVideo} autoPlay loop muted />
                 </div>
             )}
         </div>
