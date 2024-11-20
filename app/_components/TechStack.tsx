@@ -15,7 +15,7 @@ const TechStack = ({ data }: { data: IData }) => {
             items: 5
         },
         tablet: {
-            breakpoint: { max: 1024, min: 819 },
+            breakpoint: { max: 1024, min: 768 },
             items: 3 // Adjusted for better tablet experience
         },
         small: {
@@ -43,7 +43,7 @@ const TechStack = ({ data }: { data: IData }) => {
                             arrows={false}
                             renderButtonGroupOutside
                             removeArrowOnDeviceType={["tablet", "mobile"]}
-                            autoPlay
+                            autoPlay={false}
                             shouldResetAutoplay
                             autoPlaySpeed={1500}
                             infinite
@@ -52,8 +52,8 @@ const TechStack = ({ data }: { data: IData }) => {
                         >
 
                             {data.techStack.map((item, index) => (
-                                <div key={index} className="flex my-5 w-[221px] h-[268px] flex-col justify-between items-center gap-5 bg-white shadow-lg rounded-2xl p-5 flex-shrink-0">
-                                    <img src={item.img.src} className='h-[30%] object-contain' alt={item.title} />
+                                <div key={index} className="flex my-5 w-[221px] h-[234px] lg:h-[268px] flex-col items-center gap-2 justify-evenly bg-white shadow-lg rounded-2xl px-5 py-7 lg:py-5 flex-shrink-0">
+                                    <img src={item.img.src} className='h-[40%] lg:h-[30%] object-contain' alt={item.title} />
                                     <div className="h-[1px] w-full bg-black/30" />
                                     <p className='text-lg font-bold text-center'>{item.title}</p>
                                     <p className='text-center text-sm text-[#707070]'>{item.text}</p>
