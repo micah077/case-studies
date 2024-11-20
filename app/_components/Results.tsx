@@ -3,7 +3,7 @@ import { IData } from '../data';
 
 const Results = ({ data }: { data: IData }) => {
     return (
-        <div className='my-20 layout'>
+        <div className='my-10 lg:my-20 layout'>
             <div className="flex flex-col gap-5">
 
                 <div className="flex flex-col gap-1 md:gap-2">
