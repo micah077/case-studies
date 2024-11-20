@@ -5,15 +5,15 @@ import { FaPhoneAlt } from 'react-icons/fa';
 
 const EndResult = ({ data }: { data: IData }) => {
     return (
-        <div className='py-40 relative'>
+        <div className='py-20 md:py-40 relative'>
             <div className="layout">
                 <div className="flex flex-col gap-5 items-center">
                     <h1 className='text-[#0A141F] text-[28px] md:text-[60px] font-semibold'>End Results</h1>
-                    <p className='text-[12px] md:text-lg text-[#292929] text-center md:leading-[33px] w-[85%]'>
+                    <p className='text-[12px] md:text-lg text-[#292929] text-center md:leading-[33px] md:w-[85%]'>
                         {data?.endResultDescription}
                     </p>
                     <div className="mt-10 group cursor-pointer hover:bg-orange-600 border-[2px] border-[#000248] shadow-lg px-6 py-3 rounded-full flex items-center justify-center gap-3 transition-colors duration-300">
-                        <p className='m-0 text-[#050748]'>Schedule free consultation</p>
+                        <p className='m-0 text-[14px] md:text-base text-[#050748]'>Schedule free consultation</p>
                         <IoChevronForwardOutline size={20} className='m-0 text-black' />
                     </div>
                     <div className="mt-10 flex items-center gap-2 text-[#6A6A8E] text-[12px] md:text-xl">

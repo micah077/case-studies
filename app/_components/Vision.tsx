@@ -87,7 +87,7 @@ const ScrollingLaptopAnimation = ({ data }: { data: IData }) => {
 
     {/* mobile */}
 
-    <section className="py-10 px-10 flex flex-col gap-10 w-full  md:hidden overflow-hidden relative">
+    <section className="py-10 px-5 flex flex-col gap-10 w-full  md:hidden overflow-hidden relative">
      
       <div className="flex flex-col">
         <h1 className="text-[28px] font-semibold">

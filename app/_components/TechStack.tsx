@@ -35,7 +35,7 @@ const TechStack = ({ data }: { data: IData }) => {
                     <h1 className='text-[28px] md:text-[32px] xl:text-[60px] font-semibold text-center'>
                         Tech Stacks <span style={{ color: data.brandColor }}>Used</span>
                     </h1>
-                    <p className='text-center w-[70%] text-[#8A90A2] leading-[30px]'>
+                    <p className='text-center md:w-[70%] text-[#8A90A2] leading-[30px]'>
                         Our project employs a modern and efficient combination of technologies for both the backend and frontend, ensuring robust performance and scalability. The chosen stack allows for seamless data management and responsive user interfaces.
                     </p>
                     <div className="w-[221px] md:w-full  mt-10 overflow-hidden">

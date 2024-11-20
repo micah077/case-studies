@@ -9,8 +9,8 @@ const Feature = ({ data }: { data: IData }) => {
     return (
         <div className="layout py-20">
             <div className="flex flex-col gap-5 items-center">
-                <h1 className="text-[28px] md:text-[32px] xl:text-[60px] font-semibold text-center">New Features Added</h1>
-                <p className="text-[#8A90A2] md:text-[14px] md:leading-[21px] xl:text-lg xl:leading-[30px] text-center w-[75%]">
+                <h1 className="text-[25px] sm:text-[28px] md:text-[32px] xl:text-[60px] font-semibold text-center">New Features Added</h1>
+                <p className="text-[#8A90A2] md:text-[14px] md:leading-[21px] xl:text-lg xl:leading-[30px] text-center md:w-[75%]">
                     The platform focuses on improving user experience and engagement through streamlined access and enhanced management tools.
                 </p>
                 <div className="flex flex-wrap justify-center">

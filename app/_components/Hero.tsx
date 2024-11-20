@@ -51,7 +51,7 @@ const Hero = ({ data }: { data: IData }) => {
     >
       <div className="layout">
         <div className="flex flex-col items-center justify-center h-full">
-          <div className="py-10 px-5 lg:px-0 grid grid-cols-6 lg:grid-cols-12 gap-5 text-white">
+          <div className="py-10 px-0 grid grid-cols-6 lg:grid-cols-12 gap-5 text-white">
             <div
               ref={leftColumnRef}
               className="col-span-12 md:col-span-5 lg:col-span-4 flex flex-col h-full justify-center"
@@ -68,7 +68,7 @@ const Hero = ({ data }: { data: IData }) => {
                 </p>
               </div>
 
-              <p className="mt-16 leading-[28px] text-lg text-white/80">
+              <p className="mt-16 leading-[22px] md:leading-[28px] text-[13px] md:text-lg text-white/80">
                 {data?.heroLeftDescription}
               </p>
 

@@ -87,7 +87,7 @@ export default function ImageSlider({ data }: { data: IData }) {
           </div>
         ))}
       </div>
-      {isMobile && (
+      {/* {isMobile && (
         <div className="fixed bottom-4 left-0 right-0 flex justify-center">
           {data.imageSlide.map((_, index) => (
             <button
@@ -99,7 +99,7 @@ export default function ImageSlider({ data }: { data: IData }) {
             />
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 }

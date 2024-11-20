@@ -3,7 +3,7 @@ import { IData } from '../data';
 
 const Results = ({ data }: { data: IData }) => {
     return (
-        <div className='my-10 lg:my-20 layout'>
+        <div className='my-5 md:my-10 lg:my-20 layout'>
             <div className="flex flex-col gap-5">
 
                 <div className="flex flex-col gap-1 md:gap-2">
@@ -21,7 +21,7 @@ const Results = ({ data }: { data: IData }) => {
                                 src={item.img.src} 
                                 className='object-contain' 
                             />
-                            <p className='text-[#454F5C] font-bold'>{item.title}</p>
+                            <p className='text-[#454F5C] font-bold text-center'>{item.title}</p>
                             <p className='text-[#8A90A2] text-center md:text-left text-lg font-medium'>{item.description}</p>
                         </div>
                     ))}
@@ -29,7 +29,7 @@ const Results = ({ data }: { data: IData }) => {
             </div>
 
             {data.resultVideo && (
-                <div className="mt-40 border border-solid border-[#E7E7E7] rounded-md">
+                <div className="mt-20 md:mt-40 border border-solid border-[#E7E7E7] rounded-md">
                     <video className='w-full object-cover rounded-md' src={data.resultVideo} autoPlay loop muted />
                 </div>
             )}

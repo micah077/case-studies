@@ -7,8 +7,8 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
   const isMobile = useScreenWidth(767)
   return (
     <div className="pt-10">
-      <div className="layout flex flex-col items-center gap-10">
-        <h1 className="text-[28px] md:text-[32px] xl:text-[60px] font-semibold">
+      <div className="layout flex flex-col items-center gap-5 md:gap-10">
+        <h1 className="text-[25px] md:text-[32px] xl:text-[60px] font-semibold">
           Our Provided <span style={{ color: data.brandColor }}>Solution</span>
         </h1>
         <div className="h-[2px] w-[63.98px]" style={{ backgroundColor: data.brandColor }} />
