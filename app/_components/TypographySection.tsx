@@ -103,16 +103,16 @@ const TypographySection = ({ data, id }: { id?: any, data: IData }) => {
                 </div>
             </div>
 
-            <div ref={containerRef} style={{ backgroundImage: `url(${data.providedSolutionBackground.src})` }} className="md:mx-10 mt-20 md:mt-40 pb-10 bg-cover bg-no-repeat">
+            <div ref={containerRef} style={{ backgroundImage: `url(${data.providedSolutionBackground.src})` }} className="md:mx-5 lg:mx-10 mt-20 md:mt-40 pb-10 bg-cover bg-no-repeat">
                 <div className="pb-10 md:pb-0 pt-10 layout flex flex-col items-center justify-end h-full">
                     <div className="flex items-end">
                         <div className={`${isMobile ? "mr-[-20px] mb-[-60px] " : isTablet ? "mr-[-100px]" : "mr-[-120px]"} relative z-10`}>
                             <Image alt='mobile' height={isMobile ? 60 : isTablet ? 269 : 540} width={isMobile ? 124 : isTablet ? 130 : 261} className='object-contain mr-[-20px] z-10' src={data.typographyLaptop.mobileScreen.src} />
-                            <img className={`absolute ${isMobile ? "top-8 left-[50px]" : isTablet ? "top-6 left-[30px]" : `${id == 2 ? "top-36" : "top-16 left-[0px]"}`} ${isMobile && "h-[40.18px] w-[66.81px]"}`} src={data.typographyLaptop.mobileLeft.src} style={leftImageStyle} />
+                            <img className={`absolute ${isMobile ? "top-8 left-[50px]" : isTablet ? `${id ==2 ? "top-16 left-[30px]":"top-6 left-[30px]"}` : `${id == 2 ? "top-36" : "top-16 left-[0px]"}`} ${isMobile && "h-[40.18px] w-[66.81px]"}`} src={data.typographyLaptop.mobileLeft.src} style={leftImageStyle} />
                         </div>
                         <div className="relative">
                             <Image width={isMobile ? 261 : isTablet ? 566 : 1121.37} height={isMobile ? 156 : isTablet ? 338 : 659} alt='laptop' className='object-contain z-1' src={data.typographyLaptop.laptopScreen.src} />
-                            <img className={`absolute  ${isMobile ? "h-[87.49px] w-[66.61px] top-8 right-[50px]" : isTablet ? "h-[187.49px] w-[143.61px] top-10 right-[50px]" : `${id == 2 ? "top-32 right-[140px]":"top-24 right-[140px]"}`   }`} src={data.typographyLaptop.laptopEight.src} style={rightImageStyle} />
+                            <img className={`absolute  ${isMobile ? "h-[87.49px] w-[66.61px] top-8 right-[50px]" : isTablet ? `${id == 2 ?"w-[434px] h-[40px] top-14 right-[50px]":"h-[187.49px] w-[143.61px] top-10 right-[50px]"}` : `${id == 2 ? "top-32 right-[140px]":"top-24 right-[140px]"}`   }`} src={data.typographyLaptop.laptopEight.src} style={rightImageStyle} />
                         </div>
                     </div>
                 </div>
