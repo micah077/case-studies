@@ -8,6 +8,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer {
+    .layout {
+        @apply mx-auto max-w-[1440px] px-5 xl:px-0
+    }
+}
+
 :root {
   --bgImageHeroSection: url("/assets/images/bg.webp");
   --bgImageSection4Home: url("/assets/images/Home/topNotch.png");
@@ -29,6 +36,12 @@
   --bgImageTeamLandingPage: url("/assets/images/Landing Page/bg-expert-team.jpg");
   --bgImageReviewsLandingPage: url("/assets/images/Landing Page/bg-reviews.png");
 }
+
+
+::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+} 
+
 
 * {
   scroll-behavior: smooth;

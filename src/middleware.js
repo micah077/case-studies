@@ -12,7 +12,6 @@ export function middleware(request) {
     "/contact-us",
     "/blogs",
     "/blog",
-
     "/services/staff-augmentation",
     "/services/web-development",
     "/services/wordpress-development",
@@ -28,6 +27,10 @@ export function middleware(request) {
   const isAllowedRoute = allowedRoutes.some((route) => {
     if (route === "/blog") {
       const dynamicRoutePattern = new RegExp("^/blog/[^/]+$");
+      return dynamicRoutePattern.test(pathname);
+    }
+    else if (route === "/case-study") {
+      const dynamicRoutePattern = new RegExp("^/case-study/[^/]+$");
       return dynamicRoutePattern.test(pathname);
     }
     return pathname === route;
