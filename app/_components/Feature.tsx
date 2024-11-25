@@ -1,13 +1,42 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IData } from '../data';
-import { hexToRgba } from '@/lip/helper';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Feature = ({ data }: { data: IData }) => {
     const [hoveredId, setHoveredId] = useState<number | null>(null);
 
+    const sectionRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      const section = sectionRef.current
+  
+      if (section) {
+        gsap.set(section, { opacity: 0, y: 50 })
+  
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 80%',
+          onEnter: () => {
+            gsap.to(section, {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: 'power2.out'
+            })
+          },
+          once: true
+        })
+      }
+  
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      }
+    }, [])
+
     return (
-        <div className="layout py-20">
+        <div ref={sectionRef} className="layout py-20">
             <div className="flex flex-col gap-5 items-center">
                 <h1 className="text-[25px] sm:text-[28px] md:text-[32px] xl:text-[60px] font-semibold text-center">New Features Added</h1>
                 <p className="text-[#8A90A2] md:text-[14px] md:leading-[21px] xl:text-lg xl:leading-[30px] text-center md:w-[75%]">

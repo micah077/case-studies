@@ -1,10 +1,39 @@
 "use client";
-import React from 'react';
 import { IData } from '../data';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const TechStack = ({ data }: { data: IData }) => {
+    const sectionRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      const section = sectionRef.current
+  
+      if (section) {
+        gsap.set(section, { opacity: 0, y: 50 })
+  
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 80%',
+          onEnter: () => {
+            gsap.to(section, {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: 'power2.out'
+            })
+          },
+          once: true
+        })
+      }
+  
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      }
+    }, [])
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -29,7 +58,7 @@ const TechStack = ({ data }: { data: IData }) => {
     };
 
     return (
-        <div className='py-20' style={{ backgroundColor: data.techStackColor }}>
+        <div ref={sectionRef} className='py-20' style={{ backgroundColor: data.techStackColor }}>
             <div className="layout">
                 <div className="flex w-full flex-col items-center gap-5">
                     <h1 className='text-[28px] md:text-[32px] xl:text-[60px] font-semibold text-center'>

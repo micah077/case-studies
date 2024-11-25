@@ -4,8 +4,38 @@ import { IData } from '../data';
 import { useScreenWidth } from '@/lip/useScreenWidth';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 const ProvidedSolution = ({ data }: { data: IData }) => {
   const imageRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+
+    if (section) {
+      gsap.set(section, { opacity: 0, y: 50 })
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.to(section, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power2.out'
+          })
+        },
+        once: true
+      })
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [])
+
 
   useEffect(() => {
     const image = imageRef.current
@@ -26,7 +56,7 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
   }, [])
   const isMobile = useScreenWidth(767)
   return (
-    <div className="pt-10">
+    <div ref={sectionRef} className="pt-10">
       <div className="layout flex flex-col items-center gap-5 md:gap-10">
         <h1 className="text-[25px] md:text-[32px] xl:text-[60px] font-semibold">
           Our Provided <span style={{ color: data.brandColor }}>Solution</span>

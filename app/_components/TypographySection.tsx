@@ -5,9 +5,10 @@ import { hexToRgb } from '@/lip/helper';
 import Image from 'next/image';
 import { useScreenWidth } from '@/lip/useScreenWidth';
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 const TypographySection = ({ data, id }: { id?: any, data: IData }) => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
     const [isMounted, setIsMounted] = useState(false);
     const isMobile = useScreenWidth(600)
     const isTablet = useScreenWidth(1024)
@@ -15,13 +16,40 @@ const TypographySection = ({ data, id }: { id?: any, data: IData }) => {
     const leftImageRef = useRef<HTMLDivElement>(null)
     const rightImageRef = useRef<HTMLDivElement>(null)
 
+    const sectionRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      const section = sectionRef.current
+  
+      if (section) {
+        gsap.set(section, { opacity: 0, y: 50 })
+  
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 80%',
+          onEnter: () => {
+            gsap.to(section, {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: 'power2.out'
+            })
+          },
+          once: true
+        })
+      }
+  
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      }
+    }, [])
+
     useEffect(() => {
         setIsMounted(true);
 
         const leftImage = leftImageRef.current
         const rightImage = rightImageRef.current
-        console.log(leftImage, 'leftImage')
-        console.log(rightImage, 'rightImage')
+
         if (leftImage && rightImage) {
             gsap.to(leftImage, {
                 x: 20,
@@ -49,7 +77,7 @@ const TypographySection = ({ data, id }: { id?: any, data: IData }) => {
     if (!isMounted) return null;
 
     return (
-        <div className='py-20 px-0'>
+        <div ref={sectionRef} className='py-20 px-0'>
             <div className="layout">
                 <div className="flex flex-col gap-10 lg:w-[98%]">
                     <h1 className='text-[28px] md:text-[40px] xl:text-[60px] font-semibold'>

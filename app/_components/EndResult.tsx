@@ -1,11 +1,41 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useRef } from 'react';
 import { IData } from '../data';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const EndResult = ({ data }: { data: IData }) => {
+    const sectionRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      const section = sectionRef.current
+  
+      if (section) {
+        gsap.set(section, { opacity: 0, y: 50 })
+  
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 80%',
+          onEnter: () => {
+            gsap.to(section, {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: 'power2.out'
+            })
+          },
+          once: true
+        })
+      }
+  
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      }
+    }, [])
     return (
-        <div className='py-20 md:py-40 relative'>
+        <div ref={sectionRef} className='py-20 md:py-40 relative'>
             <div className="layout">
                 <div className="flex flex-col gap-5 items-center">
                     <h1 className='text-[#0A141F] text-[28px] md:text-[60px] font-semibold'>End Results</h1>

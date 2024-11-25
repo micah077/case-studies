@@ -1,9 +1,40 @@
+"use client"
 import Image from 'next/image';
 import { IData } from '../data';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Results = ({ data }: { data: IData }) => {
+    const sectionRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+      const section = sectionRef.current
+  
+      if (section) {
+        gsap.set(section, { opacity: 0, y: 50 })
+  
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 80%',
+          onEnter: () => {
+            gsap.to(section, {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              ease: 'power2.out'
+            })
+          },
+          once: true
+        })
+      }
+  
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      }
+    }, [])
     return (
-        <div className='my-5 md:my-10 lg:my-20 layout'>
+        <div ref={sectionRef} className='my-5 md:my-10 lg:my-20 layout'>
             <div className="flex flex-col gap-5">
 
                 <div className="flex flex-col gap-1 md:gap-2">
