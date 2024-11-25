@@ -13,7 +13,7 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
     if (image) {
       gsap.to(image, {
         y: -10,
-        duration: 1.5,
+        duration: 1,
         repeat: -1,
         yoyo: true,
         ease: "power1.inOut"
