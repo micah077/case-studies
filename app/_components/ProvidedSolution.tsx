@@ -2,8 +2,28 @@
 import Image from 'next/image';
 import { IData } from '../data';
 import { useScreenWidth } from '@/lip/useScreenWidth';
-
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap'
 const ProvidedSolution = ({ data }: { data: IData }) => {
+  const imageRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const image = imageRef.current
+
+    if (image) {
+      gsap.to(image, {
+        y: -10,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      })
+    }
+
+    return () => {
+      gsap.killTweensOf(image)
+    }
+  }, [])
   const isMobile = useScreenWidth(767)
   return (
     <div className="pt-10">
@@ -22,6 +42,8 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
         className="mt-40 md:mt-80 pb-10 bg-cover bg-no-repeat"
       >
         <div className="layout flex flex-col ">
+          <div className="" ref={imageRef}>
+
           <Image 
             className="mt-[-150px] md:mt-[-290px]" 
             alt="Provided Solution Image" 
@@ -29,7 +51,8 @@ const ProvidedSolution = ({ data }: { data: IData }) => {
             width={isMobile ? 324 : 1447} // Adjusted to integer
             src={data.providedSolutionLaptop.src} 
             priority // Load this image with priority
-          />
+            />
+            </div>
           <div className="lg:ml-10 flex items-center h-full gap-5">
             <p className="border-l-4 border-solid border-white xl:leading-[36px] pl-5 text-[14px] md:text-[20px] xl:text-2xl text-white md:w-[75%] xl:w-[65%]">
               {data.providedSolutionLaptopDescription}
