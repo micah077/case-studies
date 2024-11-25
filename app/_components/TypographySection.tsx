@@ -4,7 +4,7 @@ import { IData } from '../data';
 import { hexToRgb } from '@/lip/helper';
 import Image from 'next/image';
 import { useScreenWidth } from '@/lip/useScreenWidth';
-
+import { gsap } from 'gsap'
 const TypographySection = ({ data, id }: { id?: any, data: IData }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -12,31 +12,39 @@ const TypographySection = ({ data, id }: { id?: any, data: IData }) => {
     const isMobile = useScreenWidth(600)
     const isTablet = useScreenWidth(1024)
 
+    const leftImageRef = useRef<HTMLDivElement>(null)
+    const rightImageRef = useRef<HTMLDivElement>(null)
+
     useEffect(() => {
         setIsMounted(true);
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setScrollProgress(entry.intersectionRatio);
-                }
-            },
-            { threshold: Array.from({ length: 101 }, (_, i) => i / 100) }
-        );
 
-        const currentContainer = containerRef.current;
-        if (currentContainer) {
-            observer.observe(currentContainer);
+        const leftImage = leftImageRef.current
+        const rightImage = rightImageRef.current
+        console.log(leftImage, 'leftImage')
+        console.log(rightImage, 'rightImage')
+        if (leftImage && rightImage) {
+            gsap.to(leftImage, {
+                x: 20,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            })
+
+            gsap.to(rightImage, {
+                x: -20,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            })
         }
 
         return () => {
-            if (currentContainer) {
-                observer.unobserve(currentContainer);
-            }
-        };
-    }, [isMounted]);
-
-    const leftImageStyle = { transform: `translateX(${-scrollProgress * 50}px)` };
-    const rightImageStyle = { transform: `translateX(${scrollProgress * 50}px)` };
+            gsap.killTweensOf(leftImage)
+            gsap.killTweensOf(rightImage)
+        }
+    }, [isMounted])
 
     if (!isMounted) return null;
 
@@ -108,11 +116,15 @@ const TypographySection = ({ data, id }: { id?: any, data: IData }) => {
                     <div className="flex items-end">
                         <div className={`${isMobile ? "mr-[-20px] mb-[-60px] " : isTablet ? "mr-[-100px]" : "mr-[-120px]"} relative z-10`}>
                             <Image alt='mobile' height={isMobile ? 60 : isTablet ? 269 : 540} width={isMobile ? 124 : isTablet ? 130 : 261} className='object-contain mr-[-20px] z-10' src={data.typographyLaptop.mobileScreen.src} />
-                            <img className={`absolute ${isMobile ? `${id ==2 ?  "top-16 left-[50px]":"top-8 left-[50px]"}` : isTablet ? `${id ==2 ? "top-16 left-[30px]":"top-6 left-[30px]"}` : `${id == 2 ? "top-36" : "top-16 left-[0px]"}`} ${isMobile && `${id ==2?"h-[63.18px] w-[69.81px]":"h-[40.18px] w-[66.81px]"}`}`} src={data.typographyLaptop.mobileLeft.src} style={leftImageStyle} />
+                            <div ref={leftImageRef} className={`w-full absolute ${isMobile ? `${id == 2 ? "top-16 right-[20px]" : "top-8 right-[20px]"}` : isTablet ? `${id == 2 ? "top-16 right-[30px]" : "top-6 right-[30px]"}` : `${id == 2 ? "top-36 right-[50px]" : "top-16 right-[50px] w-full"}`} ${isMobile && `${id == 2 ? "h-[63.18px] w-[69.81px]" : "h-[40.18px] w-[66.81px]"}`}`} >
+                                <img className={``} src={data.typographyLaptop.mobileLeft.src} />
+                            </div>
                         </div>
                         <div className="relative">
                             <Image width={isMobile ? 261 : isTablet ? 566 : 1121.37} height={isMobile ? 156 : isTablet ? 338 : 659} alt='laptop' className='object-contain z-1' src={data.typographyLaptop.laptopScreen.src} />
-                            <img className={`absolute  ${isMobile ? `${ id==2 ?"h-[18px] w-[201px] top-7 right-[50px]":"h-[87.49px] w-[66.61px] top-8 right-[50px]"}` : isTablet ? `${id == 2 ?"w-[434px] h-[40px] top-14 right-[50px]":"h-[187.49px] w-[143.61px] top-10 right-[50px]"}` : `${id == 2 ? "top-32 right-[140px]":"top-24 right-[140px]"}`   }`} src={data.typographyLaptop.laptopEight.src} style={rightImageStyle} />
+                            <div  ref={rightImageRef} className={`absolute  ${isMobile ? `${id == 2 ? "h-[18px] w-[201px] top-7 right-[5px]" : "h-[87.49px] w-[66.61px] top-8 right-[20px]"}` : isTablet ? `${id == 2 ? "w-[434px] h-[40px] top-14 right-[10px]" : "h-[187.49px] w-[143.61px] top-10 right-[50px]"}` : `${id == 2 ? "top-32 right-[30px]" : "top-24 right-[100px]"}`}`}>
+                                <img  src={data.typographyLaptop.laptopEight.src} />
+                            </div>
                         </div>
                     </div>
                 </div>
