@@ -18,7 +18,7 @@ export function middleware(request) {
     "/services/wix-development",
     "/services/seo",
     "/services/seo-audit",
-
+    "/case-study",
     "/terms-and-conditions",
     "/privacy-and-policy",
     "/sitemap.xml",
