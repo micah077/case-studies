@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import { IData } from '../data';
 import bg from '../../assests/heroBg.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Hero = ({ data }: { data: IData }) => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -72,10 +73,10 @@ const Hero = ({ data }: { data: IData }) => {
                 {data?.heroLeftDescription}
               </p>
 
-              <div className="mt-10 flex items-center gap-3">
+              <Link href={data.heroLeftSiteLink} target='_blank'  className="mt-10 flex items-center gap-3">
                 <p>VISIT WEBSITE</p>
                 <img src={data.heroLeftWebsiteIcon.src} alt="website icon" />
-              </div>
+              </Link>
 
               <div className="flex items-center gap-5 mt-20 ">
                 {['Platforms', 'Deliverables'].map((title, index) => (
